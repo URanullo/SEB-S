@@ -52,13 +52,13 @@ const BorrowedEquipment = ({ navigation }) => {
           </View>
         )}
       />
-
+{/* 
       <TouchableOpacity 
         style={styles.historyButton} 
         onPress={() => navigation.navigate('Return History')}
       >
         <Text style={styles.buttonText}>View Returned Items</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
       <Modal animationType="fade" transparent={true} visible={modalVisible}>
         <View style={styles.modalContainer}>

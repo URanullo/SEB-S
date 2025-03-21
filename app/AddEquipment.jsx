@@ -55,13 +55,13 @@ const AddEquipment = ({ route }) => {
         placeholderTextColor={colors.gray}
       />
 
-      {/* <TextInput
-        placeholder="Type"
+      <TextInput
+        placeholder="Type of Sports"
         value={type}
         onChangeText={setType}
         style={styles.input}
         placeholderTextColor={colors.gray}
-      /> */}
+      />
 
       <TouchableOpacity style={styles.imagePicker} onPress={pickImage}>
         <Ionicons name="camera" size={24} color={colors.white} />

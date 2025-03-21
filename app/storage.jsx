@@ -37,6 +37,21 @@ export const addEquipment = async (equipment) => {
   await setItem(EQUIPMENT_KEY, currentData);
 };
 
+// Update equipment details (name, type, etc.)
+export const updateEquipment = async (oldName, newData) => {
+  const currentData = await getEquipment();
+  const updatedData = currentData.map(equip =>
+    equip.name === oldName
+      ? { 
+          ...equip, 
+          ...newData, // Update with new data (e.g., name, type)
+          image: equip.image // ✅ Keep Image URI
+        }
+      : equip
+  );
+  await setItem(EQUIPMENT_KEY, updatedData);
+};
+
 // Update equipment status and borrower info
 export const updateEquipmentStatus = async (name, newStatus, studentName = '', studentId = '') => {
   const currentData = await getEquipment();
@@ -51,6 +66,13 @@ export const updateEquipmentStatus = async (name, newStatus, studentName = '', s
         }
       : equip
   );
+  await setItem(EQUIPMENT_KEY, updatedData);
+};
+
+// ✅ Delete equipment by name
+export const deleteEquipment = async (name) => {
+  const currentData = await getEquipment();
+  const updatedData = currentData.filter(equip => equip.name !== name);
   await setItem(EQUIPMENT_KEY, updatedData);
 };
 
